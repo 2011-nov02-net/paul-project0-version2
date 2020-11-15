@@ -7,9 +7,10 @@ namespace StoreLibrary
     interface IProducts
     {
 
-        void AddProduct();
+        public void AddProduct();
 
-        void SellProduct();
+        public void RemoveProduct();
+
 
     }
 }
