@@ -10,9 +10,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "StoreApp", "StoreApp\StoreA
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "StoreLibrary", "StoreLibrary\StoreLibrary.csproj", "{010ABCA8-2E93-474D-BE75-ABD7D57072FC}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Data", "Data\Data.csproj", "{3E361E9D-26F0-44CD-B0E3-B13C472FBC53}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Data", "Data\Data.csproj", "{3E361E9D-26F0-44CD-B0E3-B13C472FBC53}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EntityFramework.Library", "EntityFramework.Library\EntityFramework.Library.csproj", "{87B808C3-96F0-4020-B11A-5C07361AE5C9}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Model", "EntityFramework.Library\Model.csproj", "{87B808C3-96F0-4020-B11A-5C07361AE5C9}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

@@ -24,7 +24,7 @@ GO
 CREATE TABLE [order_items] (
   [order_id] int,
   [product_id] int,
-  [quantity] int DEFAULT (1)
+  [quantity] int 
 )
 GO
 
@@ -54,19 +54,11 @@ CREATE TABLE [store] (
 )
 GO
 
-CREATE TABLE [store_periods] (
-  [id] int PRIMARY KEY IDENTITY(1, 1),
-  [store_id] int,
-  [start_date] datetime,
-  [end_date] datetime
-)
-GO
-
 CREATE TABLE [Inventory] (
   [id] int PRIMARY KEY IDENTITY(1, 1),
   [store_id] int,
   [product_id] int,
-  [quantity] int NOT NULL CHECK (quantity >= 0)
+  [stock] int NOT NULL CHECK (stock >= 0)
 )
 GO
 
@@ -90,9 +82,6 @@ ALTER TABLE [Inventory] ADD FOREIGN KEY ([product_id]) REFERENCES [products] ([i
 GO
 
 ALTER TABLE [products] ADD FOREIGN KEY ([store_id]) REFERENCES [store] ([id])
-GO
-
-ALTER TABLE [store_periods] ADD FOREIGN KEY ([store_id]) REFERENCES [store] ([id])
 GO
 
 CREATE INDEX [product_status] ON [products] ("store_id", "status")
@@ -220,17 +209,7 @@ VALUES
       
     );
 
-INSERT INTO store (
-    --location_id,
-    store_name
-    
-)
-VALUES
-    (
-      
-      'Robinson''s'
-      
-    );
+
 
 
 
@@ -301,7 +280,7 @@ VALUES
     (
       
       'Vaseline',
-      1,
+      8,
       4,
       'in_stock'
       
@@ -319,7 +298,7 @@ VALUES
     (
       
       'Cola',
-      2,
+      9,
       5,
       'in_stock'
     );
@@ -335,7 +314,7 @@ VALUES
     (
       
       'Choco',
-      3,
+      10,
       4,
       'in_stock'
     );
@@ -351,7 +330,7 @@ VALUES
     (
       
       'Mango',
-      4,
+      11,
       1,
       'in_stock'
     );
@@ -367,7 +346,7 @@ VALUES
     (
       
       'Grapes',
-      5,
+      12,
       2,
       'in_stock'
     );
@@ -383,7 +362,7 @@ VALUES
     (
       
       'Strawberries',
-      6,
+      10,
       3,
       'in_stock'
     );
@@ -395,13 +374,13 @@ INSERT INTO Inventory (
     
     store_id,
     product_id,
-    quantity
+    stock
 )
 VALUES
     (
       
-      2,
-      7,
+      8,
+      9,
       30
     );
 
@@ -410,13 +389,13 @@ INSERT INTO Inventory (
     
     store_id,
     product_id,
-    quantity
+    stock
 )
 VALUES
     (
       
-      1,
-      2,
+      9,
+      10,
       40
     );
 
@@ -425,13 +404,13 @@ INSERT INTO Inventory (
     
     store_id,
     product_id,
-    quantity
+    stock
 )
 VALUES
     (
       
-      1,
-      3,
+      10,
+      11,
       30
     );
 
@@ -440,13 +419,13 @@ INSERT INTO Inventory (
     
     store_id,
     product_id,
-    quantity
+    stock
 )
 VALUES
     (
       
-      2,
-      6,
+      11,
+      12,
       40
     );
 
@@ -455,13 +434,13 @@ INSERT INTO Inventory (
     
     store_id,
     product_id,
-    quantity
+    stock
 )
 VALUES
     (
       
-      6,
-      4,
+      12,
+      13,
       35
     );
 

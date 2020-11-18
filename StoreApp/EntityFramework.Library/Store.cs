@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 #nullable disable
 
-namespace EntityFramework.Library
+namespace Model
 {
     public partial class Store
     {
@@ -11,7 +11,15 @@ namespace EntityFramework.Library
         {
             Inventories = new HashSet<Inventory>();
             Products = new HashSet<Product>();
-            StorePeriods = new HashSet<StorePeriod>();
+        }
+
+        public Store(string storeName, int id, Location location, ICollection<Inventory> inventories, ICollection<Product> products)
+        {
+            StoreName = storeName;
+            Id = id;
+            Location = location;
+            Inventories = inventories;
+            Products = products;
         }
 
         public int Id { get; set; }
@@ -22,6 +30,5 @@ namespace EntityFramework.Library
         public virtual Location Location { get; set; }
         public virtual ICollection<Inventory> Inventories { get; set; }
         public virtual ICollection<Product> Products { get; set; }
-        public virtual ICollection<StorePeriod> StorePeriods { get; set; }
     }
 }

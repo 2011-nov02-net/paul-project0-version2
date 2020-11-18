@@ -4,7 +4,7 @@ using Microsoft.EntityFrameworkCore.Metadata;
 
 #nullable disable
 
-namespace EntityFramework.Library
+namespace Model
 {
     public partial class project0Context : DbContext
     {
@@ -24,7 +24,6 @@ namespace EntityFramework.Library
         public virtual DbSet<OrderItem> OrderItems { get; set; }
         public virtual DbSet<Product> Products { get; set; }
         public virtual DbSet<Store> Stores { get; set; }
-        public virtual DbSet<StorePeriod> StorePeriods { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
@@ -59,19 +58,19 @@ namespace EntityFramework.Library
 
                 entity.Property(e => e.ProductId).HasColumnName("product_id");
 
-                entity.Property(e => e.Quantity).HasColumnName("quantity");
+                entity.Property(e => e.Stock).HasColumnName("stock");
 
                 entity.Property(e => e.StoreId).HasColumnName("store_id");
 
                 entity.HasOne(d => d.Product)
                     .WithMany(p => p.Inventories)
                     .HasForeignKey(d => d.ProductId)
-                    .HasConstraintName("FK__Inventory__produ__2C88998B");
+                    .HasConstraintName("FK__Inventory__produ__46486B8E");
 
                 entity.HasOne(d => d.Store)
                     .WithMany(p => p.Inventories)
                     .HasForeignKey(d => d.StoreId)
-                    .HasConstraintName("FK__Inventory__store__2B947552");
+                    .HasConstraintName("FK__Inventory__store__45544755");
             });
 
             modelBuilder.Entity<Location>(entity =>
@@ -90,7 +89,7 @@ namespace EntityFramework.Library
             {
                 entity.ToTable("orders");
 
-                entity.HasIndex(e => e.CustomerId, "UQ__orders__CD65CB846391CBDE")
+                entity.HasIndex(e => e.CustomerId, "UQ__orders__CD65CB84C3B7EB5F")
                     .IsUnique();
 
                 entity.Property(e => e.Id).HasColumnName("id");
@@ -111,7 +110,7 @@ namespace EntityFramework.Library
                     .WithOne(p => p.Order)
                     .HasForeignKey<Order>(d => d.CustomerId)
                     .OnDelete(DeleteBehavior.ClientSetNull)
-                    .HasConstraintName("FK__orders__customer__2AA05119");
+                    .HasConstraintName("FK__orders__customer__4460231C");
             });
 
             modelBuilder.Entity<OrderItem>(entity =>
@@ -124,19 +123,17 @@ namespace EntityFramework.Library
 
                 entity.Property(e => e.ProductId).HasColumnName("product_id");
 
-                entity.Property(e => e.Quantity)
-                    .HasColumnName("quantity")
-                    .HasDefaultValueSql("((1))");
+                entity.Property(e => e.Quantity).HasColumnName("quantity");
 
                 entity.HasOne(d => d.Order)
                     .WithMany()
                     .HasForeignKey(d => d.OrderId)
-                    .HasConstraintName("FK__order_ite__order__28B808A7");
+                    .HasConstraintName("FK__order_ite__order__4277DAAA");
 
                 entity.HasOne(d => d.Product)
                     .WithMany()
                     .HasForeignKey(d => d.ProductId)
-                    .HasConstraintName("FK__order_ite__produ__29AC2CE0");
+                    .HasConstraintName("FK__order_ite__produ__436BFEE3");
             });
 
             modelBuilder.Entity<Product>(entity =>
@@ -175,7 +172,7 @@ namespace EntityFramework.Library
                     .WithMany(p => p.Products)
                     .HasForeignKey(d => d.StoreId)
                     .OnDelete(DeleteBehavior.ClientSetNull)
-                    .HasConstraintName("FK__products__store___2D7CBDC4");
+                    .HasConstraintName("FK__products__store___473C8FC7");
             });
 
             modelBuilder.Entity<Store>(entity =>
@@ -202,29 +199,7 @@ namespace EntityFramework.Library
                 entity.HasOne(d => d.Location)
                     .WithMany(p => p.Stores)
                     .HasForeignKey(d => d.LocationId)
-                    .HasConstraintName("FK__store__location___27C3E46E");
-            });
-
-            modelBuilder.Entity<StorePeriod>(entity =>
-            {
-                entity.ToTable("store_periods");
-
-                entity.Property(e => e.Id).HasColumnName("id");
-
-                entity.Property(e => e.EndDate)
-                    .HasColumnType("datetime")
-                    .HasColumnName("end_date");
-
-                entity.Property(e => e.StartDate)
-                    .HasColumnType("datetime")
-                    .HasColumnName("start_date");
-
-                entity.Property(e => e.StoreId).HasColumnName("store_id");
-
-                entity.HasOne(d => d.Store)
-                    .WithMany(p => p.StorePeriods)
-                    .HasForeignKey(d => d.StoreId)
-                    .HasConstraintName("FK__store_per__store__2E70E1FD");
+                    .HasConstraintName("FK__store__location___4183B671");
             });
 
             OnModelCreatingPartial(modelBuilder);
