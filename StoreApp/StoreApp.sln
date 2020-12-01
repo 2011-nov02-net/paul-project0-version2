@@ -10,8 +10,6 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "StoreApp", "StoreApp\StoreA
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "StoreLibrary", "StoreLibrary\StoreLibrary.csproj", "{010ABCA8-2E93-474D-BE75-ABD7D57072FC}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Data", "Data\Data.csproj", "{3E361E9D-26F0-44CD-B0E3-B13C472FBC53}"
-EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Model", "EntityFramework.Library\Model.csproj", "{87B808C3-96F0-4020-B11A-5C07361AE5C9}"
 EndProject
 Global
@@ -28,10 +26,6 @@ Global
 		{010ABCA8-2E93-474D-BE75-ABD7D57072FC}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{010ABCA8-2E93-474D-BE75-ABD7D57072FC}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{010ABCA8-2E93-474D-BE75-ABD7D57072FC}.Release|Any CPU.Build.0 = Release|Any CPU
-		{3E361E9D-26F0-44CD-B0E3-B13C472FBC53}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{3E361E9D-26F0-44CD-B0E3-B13C472FBC53}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{3E361E9D-26F0-44CD-B0E3-B13C472FBC53}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{3E361E9D-26F0-44CD-B0E3-B13C472FBC53}.Release|Any CPU.Build.0 = Release|Any CPU
 		{87B808C3-96F0-4020-B11A-5C07361AE5C9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{87B808C3-96F0-4020-B11A-5C07361AE5C9}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{87B808C3-96F0-4020-B11A-5C07361AE5C9}.Release|Any CPU.ActiveCfg = Release|Any CPU
